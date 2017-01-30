@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/menu.js"></script>
+
+    <script>
+
+      $(document).ready(function(){
+        $('#submitTx').click(function(){
+           ButtonListener('submitTX');
+        });
+
+        $('#mining').click(function(){
+            ButtonListener('mining');
+        });
+
+        $('#settings').click(function(){
+            ButtonListener('settings');
+        });
+
+        $('#quit').click(function(){
+            ButtonListener('quit');
+        });
+    });
+
+
+    </script>
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div id="menu">
+      <p>
+        <button id="submitTx">Submit a Transaction</button><br/>
+        <button id="mining"><%= miningStatus %></button><br/>
+        <button id="settings">Settings</button><br/>
+        <button id="quit">Quit</button><br/>
+      </p>
+
+    </div>
+
+
+  </body>
+</html>
