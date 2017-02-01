@@ -5,14 +5,15 @@
 let nanomsg = require('nanomsg');
 
 let req = nanomsg.socket('req');
-req.connect('tcp://127.0.0.1:5555');
-
-
+req.connect('tcp://127.0.0.1:8080');
+console.log('sending');
+req.send('["9999999999", "9999999999999"]');
 req.on('data', function (buf) {
     console.log('NANOMSG GOT: ' + String(buf));
 });
 
 let SubmitTransaction = function(trytes){
+    console.log('sending!');
     req.send(trytes);
 };
 

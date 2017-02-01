@@ -29,6 +29,7 @@ router.post('/newTx', function(req, res, next) {
 
   transaction.CreateTransaction({seed: seed, fee: fee, dest: [{address: address, value: Number(amount)}]})
       .then((e)=> {
+        console.log(JSON.stringify(e));
         PoolInterface.SubmitTransaction(e).then(() =>{
         });
         res.end(e);
