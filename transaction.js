@@ -13,7 +13,7 @@ let iota = new IOTA({
 let Transaction = function(data){
     return new Promise(function(resolve, reject){
         console.log(data.seed + ' ' +JSON.stringify(data.dest));
-        iota.api.prepareTransfers(data.seed, data.dest, function(response, error){
+        iota.api.prepareTransfers(data.seed, data.dest, function(error, response){
             if(error){
                 console.log(JSON.stringify(error));
                 console.log(error);
@@ -31,7 +31,6 @@ let CreateTransaction = function(data){
     return new Promise(function(resolve, reject) {
         Transaction({seed: data.seed, dest: data.dest})
             .then((e) => {
-                console.log(JSON.stringify(e));
                 resolve(e);
             }).catch((e) => {
             reject(e);

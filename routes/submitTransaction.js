@@ -5,6 +5,7 @@
 let express = require('express');
 let router = express.Router();
 let transaction = require('../transaction');
+let PoolInterface = require('../PoolInterface');
 let nanomsg = require('nanomsg');
 
 let req = nanomsg.socket('req');
@@ -28,6 +29,8 @@ router.post('/newTx', function(req, res, next) {
 
   transaction.CreateTransaction({seed: seed, fee: fee, dest: [{address: address, value: Number(amount)}]})
       .then((e)=> {
+        PoolInterface.SubmitTransaction(e).then(() =>{
+        });
         res.end(e);
       })
       .catch((e)=> {
