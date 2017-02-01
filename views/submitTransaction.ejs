@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/menu.js"></script>
+
+    <script>
+
+      $(document).ready(function(){
+        $('#submitTransaction').click(function(){
+
+            let params = {
+                seed: $('#seed').val(),
+                address: $('#address').val(),
+                amount: $('#amount').val(),
+                fee: $('#fee').val()
+            };
+
+
+            ButtonListener('newTx', params);
+        });
+
+        $('#index').click(function(){
+            ButtonListener('');
+        });
+
+    });
+
+
+    </script>
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div id="menu">
+      <p>
+        <div>
+          <span>Seed: </span>
+          <input type="password" id="seed" /> <br>
+          <span>Destination Address: </span>
+          <input type="text" id="address" /> <br>
+          <span>Amount: </span>
+          <input type="text" id="amount" /> <br>
+          <span>Fee: </span>
+          <input type="text" id="fee" /> <br>
+        </div>
+        <button id="submitTransaction">Submit Transaction</button><br/>
+        <button id="index">Main Menu</button><br/>
+      </p>
+
+    </div>
+
+  </body>
+</html>

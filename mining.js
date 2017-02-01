@@ -2,21 +2,21 @@
  * Created by matthew on 1/30/17.
  */
 'use strict';
-var mining = 0; //not mining
+let mining = 0; //not mining
 
-var isMining = function(){
+let isMining = function(){
     return mining;
 };
 
-var startMining = function(){
+let startMining = function(){
     mining = 1;
 };
 
-var stopMining = function(){
+let stopMining = function(){
     mining = 0;
 };
 
-var changeMiningStatus = function(){
+let changeMiningStatus = function(){
     return new Promise(function(resolve, reject){
         console.log('changing');
         if(isMining()){
@@ -30,5 +30,5 @@ var changeMiningStatus = function(){
 
 module.exports = {
   isMining:   isMining,
-  changeMiningStatus: changeMiningStatus()
+  changeMiningStatus: changeMiningStatus
 };

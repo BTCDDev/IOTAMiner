@@ -1,15 +1,20 @@
 /**
  * Created by matthew on 1/30/17.
  */
+'use strict';
+let ButtonListener = function(buttonID, params){
+    params = (typeof params !== 'undefined') ?  params : 0;
 
-
-var ButtonListener = function(buttonID){
-    console.log('making ajax call ' + buttonID);
-    $.ajax({
-        url: "/" + buttonID + "",
-        success: function(data) {
-            console.log('going to /'+buttonID);
-            window.location.href = '/' + buttonID + ''
-        }
-    });
+    if(params == 0){
+        window.location.href = '/' + buttonID;
+    }
+    else{
+        $.ajax({
+            url: '/' + buttonID,
+            method: 'POST',
+            data: params
+        }).done( function(r) {
+            alert(r);
+        } );
+    }
 };
