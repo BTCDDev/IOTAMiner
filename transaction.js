@@ -6,13 +6,13 @@
 let IOTA = require('iota.lib.js');
 
 let iota = new IOTA({
-    'host': 'http://e5fee071.ngrok.io',
-    'port': 80
+    host: 'http://eugene.iota.community',
+    port: 14265
 });
 
 let Transaction = function(data){
     return new Promise(function(resolve, reject){
-        console.log(data.seed + ' ' +JSON.stringify(data.dest));
+        console.log('preparing')
         iota.api.prepareTransfers(data.seed, data.dest, function(error, response){
             if(error){
                 console.log(JSON.stringify(error));
@@ -23,6 +23,7 @@ let Transaction = function(data){
                 resolve(response);
             }
         });
+
     });
 };
 
